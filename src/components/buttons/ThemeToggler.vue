@@ -1,5 +1,6 @@
 <template>
 	<button
+        @click="toggle_theme"
 		ref="toggle_btn"
 		id="toggle-theme"
 		class="my-panel-bg-color rounded-circle"
@@ -14,8 +15,6 @@ export default {
 	mounted() {
 		if (localStorage.getItem("dark-theme") == "yes") this.set_dark_mode();
 		else this.$refs.toggle_btn.children[0].name = "moon";
-
-		this.$refs.toggle_btn.addEventListener("click", this.toggle_theme);
 	},
 	methods: {
         toggle_theme() {

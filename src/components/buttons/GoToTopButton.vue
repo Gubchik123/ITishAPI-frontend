@@ -1,5 +1,10 @@
 <template>
-	<button ref="go_to_top_btn" name="Go to top" id="go-to-top-btn">
+	<button
+		@click="go_to_top"
+		ref="go_to_top_btn"
+		id="go-to-top-btn"
+		name="Go to top"
+	>
 		<ion-icon v-pre name="arrow-up-outline"></ion-icon>
 	</button>
 </template>
@@ -9,10 +14,6 @@ export default {
 	name: "GoToTopButton",
 	mounted() {
 		window.addEventListener("scroll", this.on_scroll);
-		this.$refs.go_to_top_btn.addEventListener("click", function () {
-			document.body.scrollTop = 0; // For Safari
-			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and
-		});
 	},
 	beforeUnmount() {
 		window.removeEventListener("scroll", this.on_scroll);
@@ -26,6 +27,10 @@ export default {
 				this.$refs.go_to_top_btn.classList =
 					"rounded-circle d-flex justify-content-center align-items-center";
 			else this.$refs.go_to_top_btn.classList = "";
+		},
+		go_to_top() {
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and
 		},
 	},
 };
