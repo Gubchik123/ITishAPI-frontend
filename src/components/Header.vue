@@ -27,7 +27,7 @@
 					<ul
 						class="navbar-nav list-group-horizontal-md me-lg-auto top-menu justify-content-center text-center"
 					>
-						<!-- <li class="nav-item me-lg-2 me-sm-4">
+						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link
 								:to="{ name: 'home' }"
 								class="nav-link"
@@ -35,9 +35,9 @@
 								Home
 							</router-link>
 						</li>
-						<li class="nav-item me-lg-2 me-sm-4">
+						<!-- <li class="nav-item me-lg-2 me-sm-4">
 							<router-link
-								:to="{ name: 'posts' }"
+								:to="{ name: 'blog' }"
 								class="nav-link"
 							>
 								Blog
@@ -50,6 +50,12 @@
 							>
 								FAQs
 							</router-link>
+						</li> -->
+						<li class="nav-item me-lg-2 me-sm-4">
+							<a class="nav-link" href="#">Blog</a>
+						</li>
+						<li class="nav-item me-lg-2 me-sm-4">
+							<a class="nav-link" href="#">FAQs</a>
 						</li>
 						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link
@@ -58,18 +64,6 @@
 							>
 								Feedback
 							</router-link>
-						</li> -->
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">Home</a>
-						</li>
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">Blog</a>
-						</li>
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">FAQs</a>
-						</li>
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">Feedback</a>
 						</li>
 						<li class="nav-item me-lg-2 me-sm-4">
 							<!-- Search form -->
