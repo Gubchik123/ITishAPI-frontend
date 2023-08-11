@@ -3,12 +3,12 @@
 		class="container-fluid my-panel-bg-color d-flex flex-wrap justify-content-between align-items-center py-3"
 	>
 		<div class="col-md-4 d-flex align-items-center">
-			<a
-				href="/"
-				class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+			<router-link
+				to="/"
+				class="mb-3 me-2 mb-md-0 text-decoration-none lh-1"
 			>
 				<ion-icon v-pre name="aperture"></ion-icon>
-			</a>
+			</router-link>
 			<span class="mb-3 mb-md-0 text-muted">&copy; 2023</span>
 		</div>
 

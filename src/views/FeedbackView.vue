@@ -1,5 +1,5 @@
 <template>
-	<BaseLayout content_title="Feedback">
+	<BaseLayout title="Feedback" content_title="Feedback">
 		<div class="d-flex flex-column align-items-center mt-3">
 			<div class="col-md-6 col-sm-12 rounded my-form-bg-color">
 				<form ref="form" class="text-white py-3 px-3">

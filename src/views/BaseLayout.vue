@@ -19,9 +19,11 @@
 
 <script>
 export default {
-    name: "MainContent",
+    name: "BaseLayout",
     props: {
+        title: { type: String, required: true },
         content_title: { type: String, required: true }
-    }
+    },
+    mounted() { document.title = `${this.title} | ITishAPI`; }
 };
 </script>

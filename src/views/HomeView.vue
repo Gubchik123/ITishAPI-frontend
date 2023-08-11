@@ -1,5 +1,5 @@
 <template>
-	<BaseLayout content_title="Home page">
+	<BaseLayout title="Home" content_title="Home page">
 		<div>
 			<h4 class="mb-3">Welcome to the blog site:</h4>
 
