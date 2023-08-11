@@ -42,6 +42,9 @@
 							>
 								Blog
 							</router-link>
+						</li> -->
+						<li class="nav-item me-lg-2 me-sm-4">
+							<a class="nav-link" href="#">Blog</a>
 						</li>
 						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link
@@ -50,12 +53,6 @@
 							>
 								FAQs
 							</router-link>
-						</li> -->
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">Blog</a>
-						</li>
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">FAQs</a>
 						</li>
 						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link
