@@ -1,0 +1,80 @@
+/* CSS variables */
+:root {
+	--my-text-color: #2f3542;
+	--my-body-bg-color: #cfdbe2;
+    --my-form-bg-color: #646568;
+	--my-panel-bg-color: #182747;
+}
+:root[theme="dark"] {
+	--my-text-color: rgb(240, 240, 240);
+	--my-body-bg-color: #404258;
+    --my-form-bg-color: #4f5c64;
+	--my-panel-bg-color: #1E2022;
+}
+
+.my-text-color { color: var(--my-text-color); }
+.my-body-bg-color { background-color: var(--my-body-bg-color); }
+.my-form-bg-color { background-color: var(--my-form-bg-color); }
+.my-panel-bg-color { background-color: var(--my-panel-bg-color); }
+
+.float_left { float: left; }
+.disabled { cursor: not-allowed; }
+
+.site-header { z-index: 90; }
+
+
+/* Global styles */
+html,
+body {
+	height: 100%;
+	font-size: 1.1em;
+    scroll-behavior: smooth;
+
+	color: var(--my-text-color);
+	background-color: var(--my-body-bg-color);
+    transition: background-color 0.5s;
+}
+
+ion-icon { font-size: 2em; }
+
+a {
+	opacity: 0.8;
+    transition: 0.2s;
+	text-decoration: none;
+}
+a:hover { opacity: 1; }
+
+
+/* Custom scrollbar */
+::-webkit-scrollbar { 
+    width: 15px; 
+    background-color: var(--bs-dark);
+}
+::-webkit-scrollbar-track { 
+    border-radius: 7px;
+    background-color: var(--bs-dark); 
+}
+::-webkit-scrollbar-thumb {
+    opacity: 0.7;
+    border-radius: 7px;
+    background: darkgray; 
+}
+::-webkit-scrollbar-thumb:hover { opacity: 1; }
+
+
+/* Custom text selection */
+::-moz-selection {
+    color: white;
+    background: #2f3542;
+}
+
+::selection {
+    color: white;
+    background: #2f3542;
+}
+
+/* Styles in main */
+main { 
+    flex: 1 1 auto;
+    overflow-x: hidden;
+}
