@@ -1,13 +1,9 @@
 <template>
 	<BaseLayout :title="code" :content_title="name">
-		<div class="alert alert-danger" role="alert">
-			<div class="float_left me-3">
-				<ion-icon v-pre name="warning"></ion-icon>
-			</div>
-			<div class="h-100 d-flex justify-content-center align-items-center">
-				<h5>{{ description }}</h5>
-			</div>
-		</div>
+        <Alert 
+            category="danger"
+            :message="description"
+        />
 	</BaseLayout>
 </template>
 
@@ -15,10 +11,11 @@
 import { mapGetters } from "vuex";
 
 import BaseLayout from "./BaseLayout.vue";
+import Alert from "../components/Alert.vue";
 
 export default {
 	name: "ErrorView",
-	components: { BaseLayout },
+	components: { BaseLayout, Alert },
 	computed: {
 		...mapGetters("error", ["code", "name", "description"]),
 	},
