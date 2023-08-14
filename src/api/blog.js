@@ -16,3 +16,9 @@ export function get_all_tags(server_url) {
 		result.json()
 	);
 }
+
+export function get_all_tag_posts(server_url, slug) {
+    return fetch(`${server_url}/blog/tag/${slug}`).then((result) =>
+        result.json()
+    );
+}
