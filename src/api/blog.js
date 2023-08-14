@@ -5,6 +5,12 @@ export function get_all_posts(server_url, q) {
 	);
 }
 
+export function get_post(server_url, slug) {
+    return fetch(`${server_url}/blog/post/${slug}`).then((result) =>
+        result.json()
+    );
+}
+
 export function get_all_tags(server_url) {
 	return fetch(`${server_url}/blog/?tab=tags`).then((result) =>
 		result.json()
