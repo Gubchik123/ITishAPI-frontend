@@ -22,13 +22,13 @@
 			class="tags d-flex flex-wrap justify-content-between"
 		>
 			<!-- Tags -->
-			<a
-				v-for="tag in tags"
+            <router-link
+                v-for="tag in tags"
 				:key="tag.id"
-				href="#"
+                :to="{ name: 'tag', params: { slug: tag.slug }}"
 				class="d-inline float_left me-3 mb-3 text-decoration-none"
-			>
-				<span
+            >
+                <span
 					:style="{
 						fontSize: is_mobile
 							? '1em'
@@ -47,7 +47,7 @@
 				>
 					#{{ tag.title }}
 				</span>
-			</a>
+            </router-link>
 		</div>
 	</BlogLayout>
 </template>
