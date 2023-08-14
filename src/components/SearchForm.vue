@@ -1,9 +1,14 @@
 <template>
-	<form method="get" action="/blog" role="search" class="d-flex align-items-center">
+	<form
+		method="get"
+		role="search"
+		action="/blog/posts"
+		class="d-flex align-items-center"
+	>
 		<input
+			:value="$route.query.q || ''"
 			name="q"
 			type="search"
-			:value="$route.params.q || ''"
 			aria-label="Title, content..."
 			placeholder="Title, content..."
 			class="form-control search me-2 ms-lg-3 ms-sm-0"
@@ -13,3 +18,15 @@
 		</button>
 	</form>
 </template>
+
+<style scoped>
+.search {
+	max-width: 70%;
+}
+
+@media screen and (max-width: 576px) {
+	.search_form {
+		margin-bottom: 25px;
+	}
+}
+</style>
