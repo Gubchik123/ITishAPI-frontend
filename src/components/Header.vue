@@ -35,16 +35,13 @@
 								Home
 							</router-link>
 						</li>
-						<!-- <li class="nav-item me-lg-2 me-sm-4">
+						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link
 								:to="{ name: 'blog' }"
 								class="nav-link"
 							>
 								Blog
 							</router-link>
-						</li> -->
-						<li class="nav-item me-lg-2 me-sm-4">
-							<a class="nav-link" href="#">Blog</a>
 						</li>
 						<li class="nav-item me-lg-2 me-sm-4">
 							<router-link

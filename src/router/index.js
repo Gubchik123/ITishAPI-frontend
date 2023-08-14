@@ -5,6 +5,8 @@ import FAQsView from "../views/FaqsView.vue";
 import FeedbackView from "../views/FeedbackView.vue";
 import ErrorView from "../views/ErrorView.vue";
 
+import blog_routes from "./blog_routes.js";
+
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -29,6 +31,12 @@ const router = createRouter({
 			name: "error",
 			component: ErrorView,
 		},
+        {
+            path: "/blog",
+            name: "blog",
+            redirect: "/blog/posts",
+            children: blog_routes,
+        },
 		{
 			path: "/:pathMatch(.*)*",
 			redirect: "/error",
