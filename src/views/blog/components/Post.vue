@@ -1,7 +1,9 @@
 <template>
 	<div class="post rounded my-form-bg-color p-3 mb-3">
-		<a href="#">
-			<div
+		<router-link
+            :to="{ name: 'post', params: { slug: post.slug } }"
+        >
+            <div
 				class="post_title text-decoration-underline d-flex justify-content-between"
 			>
 				<h3>{{ post.title }}</h3>
@@ -17,7 +19,7 @@
 					<span v-if="post.body.length > 200">...</span>
 				</p>
 			</div>
-		</a>
+        </router-link>
 
 		<post-info :item="post" />
 	</div>
