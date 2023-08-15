@@ -64,7 +64,7 @@
 							<div
 								class="search_form d-flex justify-content-center"
 							>
-								<search-form></search-form>
+								<search-form />
 							</div>
 						</li>
 					</ul>
@@ -74,7 +74,7 @@
 						class="navbar-nav list-group-horizontal justify-content-between mt-lg-0 mt-md-3 mt-sm-3"
 					>
 						<li class="nav-item me-3">
-							<theme-toggler></theme-toggler>
+							<theme-toggler />
 						</li>
 						<li class="nav-item">
 							<!-- <div class="dropdown text-end">
@@ -129,10 +129,18 @@
 									</li>
 								</ul>
 							</div> -->
-							<a href="#" class="btn btn-outline-success me-2">
+							<router-link 
+                                :to="{ name: 'login' }" 
+                                class="btn btn-outline-success me-2"
+                            >
 								Log In
-							</a>
-							<a href="#" class="btn btn-primary"> Sign Up </a>
+							</router-link>
+							<router-link 
+                                :to="{ name: 'signup' }" 
+                                class="btn btn-primary"
+                            > 
+                                Sign Up 
+                            </router-link>
 						</li>
 					</ul>
 				</div>
