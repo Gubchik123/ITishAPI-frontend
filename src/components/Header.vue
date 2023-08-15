@@ -77,7 +77,10 @@
 							<theme-toggler />
 						</li>
 						<li class="nav-item">
-							<!-- <div class="dropdown text-end">
+							<div
+								v-if="is_user_authenticated"
+								class="dropdown text-end"
+							>
 								<a
 									href="#"
 									class="d-block link-light text-decoration-none dropdown-toggle"
@@ -85,6 +88,7 @@
 									aria-expanded="false"
 								>
 									<ion-icon
+										v-pre
 										name="person-circle-outline"
 									></ion-icon>
 								</a>
@@ -98,6 +102,7 @@
 										>
 											Profile
 											<ion-icon
+												v-pre
 												name="person-outline"
 											></ion-icon>
 										</a>
@@ -109,6 +114,7 @@
 										>
 											New post...
 											<ion-icon
+												v-pre
 												name="add-circle-outline"
 											></ion-icon>
 										</a>
@@ -119,28 +125,32 @@
 									<li>
 										<a
 											href="#"
+											@click="$emit('logout')"
 											class="dropdown-item d-flex justify-content-between align-items-center"
 										>
 											Log out
 											<ion-icon
+												v-pre
 												name="log-out-outline"
 											></ion-icon>
 										</a>
 									</li>
 								</ul>
-							</div> -->
-							<router-link 
-                                :to="{ name: 'login' }" 
-                                class="btn btn-outline-success me-2"
-                            >
-								Log In
-							</router-link>
-							<router-link 
-                                :to="{ name: 'signup' }" 
-                                class="btn btn-primary"
-                            > 
-                                Sign Up 
-                            </router-link>
+							</div>
+							<template v-else>
+								<router-link
+									:to="{ name: 'login' }"
+									class="btn btn-outline-success me-2"
+								>
+									Log In
+								</router-link>
+								<router-link
+									:to="{ name: 'signup' }"
+									class="btn btn-primary"
+								>
+									Sign Up
+								</router-link>
+							</template>
 						</li>
 					</ul>
 				</div>
@@ -156,6 +166,12 @@ import ThemeToggler from "./buttons/ThemeToggler.vue";
 export default {
 	name: "Header",
 	components: { SearchForm, ThemeToggler },
+	props: {
+		is_user_authenticated: {
+			type: Boolean,
+			required: true,
+		},
+	},
 };
 </script>
 
