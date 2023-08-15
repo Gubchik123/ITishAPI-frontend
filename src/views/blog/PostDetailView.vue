@@ -8,11 +8,10 @@
 			class="tags_and_likes mb-2 d-flex justify-content-between align-items-center"
 		>
 			<div class="tags">
-				<!-- TODO:
-                <a
-                    v-for="tag in post_tags"
+                <router-link
                     :key="tag.id"
-                    href="#"
+                    v-for="tag in post.tags"
+                    :to="{ name: 'tag', params: { slug: tag.slug } }"
                     class="d-inline float_left me-3 mb-3 text-decoration-none"
                 >
                     <span
@@ -21,8 +20,11 @@
                     >
                         #{{ tag.title }}
                     </span>
-                </a> -->
-				<span class="rounded text-bg-warning px-2 py-1">
+                </router-link>
+				<span 
+                    v-if="post.tags.length === 0" 
+                    class="rounded text-bg-warning px-2 py-1"
+                >
 					There are not any tags yet
 				</span>
 			</div>
