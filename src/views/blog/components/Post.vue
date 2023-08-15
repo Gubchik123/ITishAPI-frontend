@@ -21,16 +21,16 @@
 			</div>
         </router-link>
 
-		<post-info :item="post" />
+		<item-info :item="post" />
 	</div>
 </template>
 
 <script>
-import PostInfo from "./PostInfo.vue";
+import ItemInfo from "./ItemInfo.vue";
 
 export default {
 	name: "Post",
-    components: { PostInfo },
+    components: { ItemInfo },
 	props: {
 		post: { type: Object, required: true },
 	},

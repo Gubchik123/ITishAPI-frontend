@@ -56,7 +56,7 @@
 
 		<hr />
 		<!-- Post info -->
-		<post-info :item="post" />
+		<item-info :item="post" />
 		<hr class="mt-3" />
 
 		<!-- Post body -->
@@ -136,11 +136,11 @@ import BaseLayout from "../BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
 
 import { get_post } from "../../api/blog.js";
-import PostInfo from "./components/PostInfo.vue";
+import ItemInfo from "./components/ItemInfo.vue";
 
 export default {
 	name: "PostDetailView",
-	components: { BaseLayout, Alert, PostInfo },
+	components: { BaseLayout, Alert, ItemInfo },
 	data() {
 		return { post: null, post_tags: [], post_likes: [], post_comments: [] };
 	},
