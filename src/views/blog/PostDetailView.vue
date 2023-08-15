@@ -111,19 +111,25 @@
 
 		<h2 class="mb-3">Comments</h2>
 
-		<!-- TODO: Add comment form if user is authenticated -->
-
-		<Alert
-			category="warning"
-			message="Log in to has ability to comment post"
-		/>
-
-        <!-- Comments -->
-		<Alert 
-            v-if="post_comments.length === 0"
-            category="primary" 
-            message="There are not any comments yet" 
+		<div v-if="is_user_authenticated()" class="comment-form w-100 mb-5">
+            <comment-form 
+                @add_comment="add_comment"
+                :post_id="post.id"
+                :user_id="current_user_id()"
+            />
+        </div>
+        <Alert
+            v-else
+            category="warning"
+            message="Log in to has ability to comment post"
         />
+
+		<!-- Comments -->
+		<Alert
+			v-if="post_comments.length === 0"
+			category="primary"
+			message="There are not any comments yet"
+		/>
 		<div v-else class="all-comments w-100">
 			<comment-list :comments="post_comments" />
 		</div>
@@ -137,14 +143,17 @@ import { mapGetters } from "vuex";
 
 import BaseLayout from "../BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
+import UserMixin from "../../mixins/UserMixin.js";
 
 import ItemInfo from "./components/ItemInfo.vue";
 import CommentList from "./components/CommentList.vue";
+import CommentForm from "./components/CommentForm.vue";
 import { get_post, get_post_comments } from "../../api/blog.js";
 
 export default {
 	name: "PostDetailView",
-	components: { BaseLayout, Alert, ItemInfo, CommentList },
+	mixins: [UserMixin],
+	components: { BaseLayout, Alert, ItemInfo, CommentForm, CommentList },
 	data() {
 		return { post: null, post_likes: [], post_comments: [] };
 	},
@@ -164,6 +173,11 @@ export default {
 			return location.href;
 		},
 	},
+    methods: {
+        add_comment(comment) {
+            this.post_comments.unshift(comment);
+        }
+    }
 };
 </script>
 
@@ -192,10 +206,6 @@ export default {
 	.share-links .links {
 		font-size: 1em;
 	}
-}
-
-#comment_body {
-	height: 150px;
 }
 
 .all-comments .item_author a {
