@@ -11,6 +11,12 @@ export function get_post(server_url, slug) {
     );
 }
 
+export function get_post_comments(server_url, slug) {
+    return fetch(`${server_url}/blog/post/${slug}/comments`).then((result) =>
+        result.json()
+    );
+}
+
 export function get_all_tags(server_url) {
 	return fetch(`${server_url}/blog/?tab=tags`).then((result) =>
 		result.json()

@@ -8,23 +8,23 @@
 			class="tags_and_likes mb-2 d-flex justify-content-between align-items-center"
 		>
 			<div class="tags">
-                <router-link
-                    :key="tag.id"
-                    v-for="tag in post.tags"
-                    :to="{ name: 'tag', params: { slug: tag.slug } }"
-                    class="d-inline float_left me-3 mb-3 text-decoration-none"
-                >
-                    <span
-                        style="line-height: 1.5em"
-                        class="tag badge border rounded"
-                    >
-                        #{{ tag.title }}
-                    </span>
-                </router-link>
-				<span 
-                    v-if="post.tags.length === 0" 
-                    class="rounded text-bg-warning px-2 py-1"
-                >
+				<router-link
+					:key="tag.id"
+					v-for="tag in post.tags"
+					:to="{ name: 'tag', params: { slug: tag.slug } }"
+					class="d-inline float_left me-3 mb-3 text-decoration-none"
+				>
+					<span
+						style="line-height: 1.5em"
+						class="tag badge border rounded"
+					>
+						#{{ tag.title }}
+					</span>
+				</router-link>
+				<span
+					v-if="post.tags.length === 0"
+					class="rounded text-bg-warning px-2 py-1"
+				>
 					There are not any tags yet
 				</span>
 			</div>
@@ -118,12 +118,15 @@
 			message="Log in to has ability to comment post"
 		/>
 
-		<!-- TODO: 
-        <div class="all-comments w-100">
-            <comment-list :comments="post_comments" />
-        </div>  -->
-
-		<Alert category="primary" message="There are not any comments yet" />
+        <!-- Comments -->
+		<Alert 
+            v-if="post_comments.length === 0"
+            category="primary" 
+            message="There are not any comments yet" 
+        />
+		<div v-else class="all-comments w-100">
+			<comment-list :comments="post_comments" />
+		</div>
 	</BaseLayout>
 
 	<BaseLayout v-else title="Loading..." content_title="Loading..." />
@@ -135,21 +138,23 @@ import { mapGetters } from "vuex";
 import BaseLayout from "../BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
 
-import { get_post } from "../../api/blog.js";
 import ItemInfo from "./components/ItemInfo.vue";
+import CommentList from "./components/CommentList.vue";
+import { get_post, get_post_comments } from "../../api/blog.js";
 
 export default {
 	name: "PostDetailView",
-	components: { BaseLayout, Alert, ItemInfo },
+	components: { BaseLayout, Alert, ItemInfo, CommentList },
 	data() {
-		return { post: null, post_tags: [], post_likes: [], post_comments: [] };
+		return { post: null, post_likes: [], post_comments: [] };
 	},
 	created() {
 		setTimeout(() => {
 			get_post(this.server_url, this.$route.params.slug).then(
-				(response) => {
-					this.post = response;
-				}
+				(response) => (this.post = response)
+			);
+			get_post_comments(this.server_url, this.$route.params.slug).then(
+				(response) => (this.post_comments = response)
 			);
 		}, 1000);
 	},
