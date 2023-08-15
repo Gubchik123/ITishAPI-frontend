@@ -6,6 +6,7 @@ import FeedbackView from "../views/FeedbackView.vue";
 import ErrorView from "../views/ErrorView.vue";
 
 import blog_routes from "./blog_routes.js";
+import auth_routes from "./auth_routes.js";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,12 @@ const router = createRouter({
             name: "blog",
             redirect: "/blog/posts",
             children: blog_routes,
+        },
+        {
+            path: "/auth",
+            name: "auth",
+            redirect: "/auth/login",
+            children: auth_routes,
         },
 		{
 			path: "/:pathMatch(.*)*",
