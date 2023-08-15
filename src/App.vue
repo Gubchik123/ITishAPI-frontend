@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper d-flex flex-column min-vh-100">
-        <Header />
+        <!-- Header component in the views/BaseLayout.vue -->
         <router-view />
         <go-to-top-button />
         <Footer />
@@ -8,12 +8,11 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
 import GoToTopButton from "./components/buttons/GoToTopButton.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
 	name: "App",
-    components: { Header, GoToTopButton, Footer }
+    components: { GoToTopButton, Footer }
 };
 </script>

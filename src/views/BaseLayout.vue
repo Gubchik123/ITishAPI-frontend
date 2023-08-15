@@ -1,4 +1,6 @@
 <template>
+    <Header @logout="logout" :is_user_authenticated="is_user_authenticated" />
+
 	<main class="my-4">
 		<div class="container">
 			<div class="row">
@@ -18,12 +20,31 @@
 </template>
 
 <script>
+import Header from "../components/Header.vue";
+
 export default {
     name: "BaseLayout",
+    components: { Header },
     props: {
         title: { type: String, required: true },
         content_title: { type: String, required: true }
     },
-    mounted() { document.title = `${this.title} | ITishAPI`; }
+    data() {
+        return { is_user_authenticated: false, };
+    },
+    beforeMount() {
+        this.update_is_user_authenticated();
+    },
+    mounted() { document.title = `${this.title} | ITishAPI`; },
+    methods: {
+        logout() {
+            localStorage.removeItem("user_id");
+            localStorage.removeItem("access_token");
+            this.update_is_user_authenticated();
+        },
+        update_is_user_authenticated() {
+            this.is_user_authenticated = localStorage.getItem("access_token") ? true : false;
+        }
+    },
 };
 </script>
