@@ -1,6 +1,6 @@
 export default {
-    created() {
-        if (localStorage.getItem("access_token") && localStorage.getItem("user_id")) {
+    beforeCreate() {
+        if (localStorage.getItem("access_token")) {
             // TODO: Redirect to the user's profile page
             this.$router.push({ name: "home" });
         }
