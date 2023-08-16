@@ -2,6 +2,7 @@ import MeDetailView from "../views/profile/MeDetailView.vue";
 import UserDetailView from "../views/profile/UserDetailView.vue";
 import UserPostsView from "../views/profile/UserPostsView.vue";
 import UserCommentsView from "../views/profile/UserCommentsView.vue";
+import UserLikesView from "../views/profile/UserLikesView.vue";
 
 export default [
 	{
@@ -23,6 +24,12 @@ export default [
         meta: { requires_auth: true }
 	},
 	{
+		path: "me/likes",
+		name: "my-likes",
+		component: UserLikesView,
+        meta: { requires_auth: true }
+	},
+	{
 		path: ":username",
 		name: "user",
 		component: UserDetailView,
@@ -36,5 +43,10 @@ export default [
 		path: ":username/comments",
 		name: "user-comments",
 		component: UserCommentsView,
+	},
+	{
+		path: ":username/likes",
+		name: "user-likes",
+		component: UserLikesView,
 	},
 ];
