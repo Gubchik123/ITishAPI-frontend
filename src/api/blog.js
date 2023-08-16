@@ -1,3 +1,5 @@
+import { get_json_headers, get_auth_headers } from "./api.js"
+
 export function get_all_posts(server_url, q) {
     q = q || "";
 	return fetch(`${server_url}/blog/?tab=posts&q=${q}`).then((result) =>
@@ -15,9 +17,7 @@ export function create_like(post_id, server_url) {
     return fetch(`${server_url}/blog/like`, {
         method: "POST",
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            ...get_json_headers(), ...get_auth_headers()
         },
         body: JSON.stringify({
             post_id: post_id,
@@ -30,9 +30,7 @@ export function delete_like(post_id, server_url) {
     return fetch(`${server_url}/blog/like`, {
         method: "DELETE",
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            ...get_json_headers(), ...get_auth_headers()
         },
         body: JSON.stringify({
             post_id: post_id,
@@ -45,9 +43,7 @@ export function create_comment(comment_body, post_id, server_url) {
     return fetch(`${server_url}/blog/comment`, {
         method: "POST",
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            ...get_json_headers(), ...get_auth_headers()
         },
         body: JSON.stringify({
             body: comment_body,

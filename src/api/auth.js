@@ -1,3 +1,5 @@
+import { get_json_headers } from "./api";
+
 export function login(email, password, server_url) {
 	return fetch(`${server_url}/auth/login`, {
 		method: "POST",
@@ -18,10 +20,7 @@ export function login(email, password, server_url) {
 export function signup(username, email, password, server_url) {
 	return fetch(`${server_url}/auth/signup`, {
 		method: "POST",
-		headers: {
-			Accept: "application/json",
-			"Content-Type": "application/json",
-		},
+		headers: get_json_headers(),
 		body: JSON.stringify({
 			username: username,
 			email: email,
