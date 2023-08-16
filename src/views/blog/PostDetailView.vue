@@ -29,28 +29,13 @@
 				</span>
 			</div>
 			<div class="likes">
-				<button
-					type="button"
-					id="like-button"
-					class="btn position-relative border-0"
-				>
-					<!-- TODO: 
-                        1. Disable button, if user is not authenticated 
-                        2. Add "-outline" to icon name, if user has not liked post yet
-                    -->
-					<ion-icon
-						v-pre
-						id="like-icon"
-						name="heart-outline"
-					></ion-icon>
-					<span
-						id="like-count"
-						class="position-absolute top-0 start-100 translate-middle badge rounded-pill my-form-bg-color"
-					>
-						0
-						<!-- TODO: {{ post_likes.length }} -->
-					</span>
-				</button>
+				<like-button
+                    :likes="post_likes"
+                    :post_id="post.id"
+                    :user_id="current_user_id()"
+                    @add_like="add_like"
+                    @delete_like="delete_like"
+                />
 			</div>
 		</div>
 
@@ -145,15 +130,16 @@ import BaseLayout from "../BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
 import UserMixin from "../../mixins/UserMixin.js";
 
+import LikeButton from "./components/LikeButton.vue";
 import ItemInfo from "./components/ItemInfo.vue";
 import CommentList from "./components/CommentList.vue";
 import CommentForm from "./components/CommentForm.vue";
-import { get_post, get_post_comments } from "../../api/blog.js";
+import { get_post, get_post_likes, get_post_comments } from "../../api/blog.js";
 
 export default {
 	name: "PostDetailView",
 	mixins: [UserMixin],
-	components: { BaseLayout, Alert, ItemInfo, CommentForm, CommentList },
+	components: { BaseLayout, Alert, LikeButton, ItemInfo, CommentForm, CommentList },
 	data() {
 		return { post: null, post_likes: [], post_comments: [] };
 	},
@@ -161,6 +147,9 @@ export default {
 		setTimeout(() => {
 			get_post(this.server_url, this.$route.params.slug).then(
 				(response) => (this.post = response)
+			);
+			get_post_likes(this.server_url, this.$route.params.slug).then(
+				(response) => (this.post_likes = response)
 			);
 			get_post_comments(this.server_url, this.$route.params.slug).then(
 				(response) => (this.post_comments = response)
@@ -174,6 +163,12 @@ export default {
 		},
 	},
     methods: {
+        add_like(user_id) {
+            this.post_likes.push(user_id);
+        },
+        delete_like(user_id) {
+            this.post_likes = this.post_likes.filter(id => id !== user_id);
+        },
         add_comment(comment) {
             this.post_comments.unshift(comment);
         }
@@ -188,10 +183,6 @@ export default {
 
 .tag {
 	background-color: var(--bs-primary);
-}
-
-#like-icon {
-	color: red;
 }
 
 .item_author a {
