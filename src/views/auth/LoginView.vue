@@ -120,7 +120,9 @@ export default {
                     localStorage.setItem("user_id", response.user_id);
                     localStorage.setItem("access_token", response.access_token);
 
-                    this.$router.push({ name: "home" });
+                    if (this.$route.redirectedFrom)
+                        this.$router.push(this.$route.redirectedFrom.fullPath);
+                    else this.$router.push({ name: "user" });
                 })
                 .catch((error) => {
                     this.message = {
