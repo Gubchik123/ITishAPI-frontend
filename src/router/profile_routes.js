@@ -1,6 +1,7 @@
 import MeDetailView from "../views/profile/MeDetailView.vue";
 import UserDetailView from "../views/profile/UserDetailView.vue";
 import UserPostsView from "../views/profile/UserPostsView.vue";
+import UserCommentsView from "../views/profile/UserCommentsView.vue";
 
 export default [
 	{
@@ -16,6 +17,12 @@ export default [
         meta: { requires_auth: true }
 	},
 	{
+		path: "me/comments",
+		name: "my-comments",
+		component: UserCommentsView,
+        meta: { requires_auth: true }
+	},
+	{
 		path: ":username",
 		name: "user",
 		component: UserDetailView,
@@ -24,5 +31,10 @@ export default [
 		path: ":username/posts",
 		name: "user-posts",
 		component: UserPostsView,
+	},
+	{
+		path: ":username/comments",
+		name: "user-comments",
+		component: UserCommentsView,
 	},
 ];
