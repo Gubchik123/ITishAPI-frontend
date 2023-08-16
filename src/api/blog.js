@@ -28,6 +28,15 @@ export function create_post({title, body, tags}, server_url) {
     }).then((result) => result.json());
 }
 
+export function delete_post(post_slug, server_url) {
+    return fetch(`${server_url}/blog/post/${post_slug}`, {
+        method: "DELETE",
+        headers: {
+            ...get_json_headers(), ...get_auth_headers()
+        }
+    }).then((result) => result.json());
+}
+
 export function create_like(post_id, server_url) {
     return fetch(`${server_url}/blog/like`, {
         method: "POST",
