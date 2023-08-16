@@ -108,8 +108,8 @@
 										</a>
 									</li>
 									<li>
-										<a
-											href="#"
+										<router-link
+											:to="{ name: 'post-create' }"
 											class="dropdown-item d-flex justify-content-between align-items-center"
 										>
 											New post...
@@ -117,7 +117,7 @@
 												v-pre
 												name="add-circle-outline"
 											></ion-icon>
-										</a>
+										</router-link>
 									</li>
 									<li>
 										<hr class="dropdown-divider" />
