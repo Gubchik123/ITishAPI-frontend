@@ -13,6 +13,21 @@ export function get_post(server_url, slug) {
     );
 }
 
+export function create_post({title, body, tags}, server_url) {
+    return fetch(`${server_url}/blog/post`, {
+        method: "POST",
+        headers: {
+            ...get_json_headers(), ...get_auth_headers()
+        },
+        body: JSON.stringify({
+            title: title,
+            body: body,
+            tags: tags,
+            user_id: localStorage.getItem("user_id"),
+        }),
+    }).then((result) => result.json());
+}
+
 export function create_like(post_id, server_url) {
     return fetch(`${server_url}/blog/like`, {
         method: "POST",
