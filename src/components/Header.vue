@@ -96,8 +96,8 @@
 									class="dropdown-menu text-small position-absolute mt-3"
 								>
 									<li>
-										<a
-											href="#"
+										<router-link
+											:to="{ name: 'me' }"
 											class="dropdown-item d-flex justify-content-between align-items-center"
 										>
 											Profile
@@ -105,7 +105,7 @@
 												v-pre
 												name="person-outline"
 											></ion-icon>
-										</a>
+										</router-link>
 									</li>
 									<li>
 										<router-link
