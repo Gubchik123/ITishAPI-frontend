@@ -30,12 +30,12 @@
 			</div>
 			<div class="likes">
 				<like-button
-                    :likes="post_likes"
-                    :post_id="post.id"
-                    :user_id="current_user_id()"
-                    @add_like="add_like"
-                    @delete_like="delete_like"
-                />
+					:likes="post_likes"
+					:post_id="post.id"
+					:user_id="current_user_id()"
+					@add_like="add_like"
+					@delete_like="delete_like"
+				/>
 			</div>
 		</div>
 
@@ -97,17 +97,17 @@
 		<h2 class="mb-3">Comments</h2>
 
 		<div v-if="is_user_authenticated()" class="comment-form w-100 mb-5">
-            <comment-form 
-                @add_comment="add_comment"
-                :post_id="post.id"
-                :user_id="current_user_id()"
-            />
-        </div>
-        <Alert
-            v-else
-            category="warning"
-            message="Log in to has ability to comment post"
-        />
+			<comment-form
+				@add_comment="add_comment"
+				:post_id="post.id"
+				:user_id="current_user_id()"
+			/>
+		</div>
+		<Alert
+			v-else
+			category="warning"
+			message="Log in to has ability to comment post"
+		/>
 
 		<!-- Comments -->
 		<Alert
@@ -116,7 +116,11 @@
 			message="There are not any comments yet"
 		/>
 		<div v-else class="all-comments w-100">
-			<comment-list :comments="post_comments" />
+			<comment-list
+				@delete_comment="delete_comment"
+				:comments="post_comments"
+				:current_user_id="current_user_id()"
+			/>
 		</div>
 	</BaseLayout>
 
@@ -139,7 +143,14 @@ import { get_post, get_post_likes, get_post_comments } from "../../api/blog.js";
 export default {
 	name: "PostDetailView",
 	mixins: [UserMixin],
-	components: { BaseLayout, Alert, LikeButton, ItemInfo, CommentForm, CommentList },
+	components: {
+		BaseLayout,
+		Alert,
+		LikeButton,
+		ItemInfo,
+		CommentForm,
+		CommentList,
+	},
 	data() {
 		return { post: null, post_likes: [], post_comments: [] };
 	},
@@ -162,17 +173,22 @@ export default {
 			return location.href;
 		},
 	},
-    methods: {
-        add_like(user_id) {
-            this.post_likes.push(user_id);
-        },
-        delete_like(user_id) {
-            this.post_likes = this.post_likes.filter(id => id !== user_id);
-        },
-        add_comment(comment) {
-            this.post_comments.unshift(comment);
-        }
-    }
+	methods: {
+		add_like(user_id) {
+			this.post_likes.push(user_id);
+		},
+		delete_like(user_id) {
+			this.post_likes = this.post_likes.filter((id) => id !== user_id);
+		},
+		add_comment(comment) {
+			this.post_comments.unshift(comment);
+		},
+		delete_comment(comment_id) {
+			this.post_comments = this.post_comments.filter(
+				(comment) => comment.id !== comment_id
+			);
+		},
+	},
 };
 </script>
 
