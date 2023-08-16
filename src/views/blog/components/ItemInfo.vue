@@ -11,12 +11,12 @@
 		</div>
 		<div v-else class="item_author me-3">
 			<b>Author:</b> &nbsp;
-			<a
-				href="#"
+			<router-link
+				:to="'/user/' + item.user.username"
 				class="text-decoration-underline"
 			>
 				{{ item.user.username }}
-			</a>
+			</router-link>
 		</div>
 		<div class="item_created">
 			<b>Created:</b> &nbsp;
