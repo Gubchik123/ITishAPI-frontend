@@ -2,12 +2,12 @@
 	<div class="item_info d-flex justify-content-between">
 		<div v-if="is_in_profile" class="item_author me-3">
 			<b>For post:</b> &nbsp;
-			<a
-				href="#"
+			<router-link
+				:to="{ name: 'post', params: { slug: item.post.slug } }"
 				class="text-decoration-underline"
 			>
-				{{ item.post.url }}
-			</a>
+				{{ item.post.title }}
+			</router-link>
 		</div>
 		<div v-else class="item_author me-3">
 			<b>Author:</b> &nbsp;
