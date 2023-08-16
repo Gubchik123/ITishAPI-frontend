@@ -1,6 +1,6 @@
 <template>
 	<div class="post rounded my-form-bg-color p-3 mb-3 placeholder-glow">
-		<a href="/blog/post/The-Life-of-a-Programmer--Balancing-Work-and-Play">
+		<a href="#">
 			<div
 				class="post_title text-decoration-underline d-flex justify-content-between"
 			>
