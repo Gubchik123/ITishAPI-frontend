@@ -77,6 +77,18 @@ export function create_comment(comment_body, post_id, server_url) {
     }).then((result) => result.json());
 }
 
+export function delete_comment(comment_id, server_url) {
+    return fetch(`${server_url}/blog/comment`, {
+        method: "DELETE",
+        headers: {
+            ...get_json_headers(), ...get_auth_headers()
+        },
+        body: JSON.stringify({
+            id: comment_id,
+        })
+    }).then((result) => result.json());
+}
+
 export function get_post_likes(server_url, slug) {
     return fetch(`${server_url}/blog/post/${slug}/likes`).then((result) =>
         result.json()
