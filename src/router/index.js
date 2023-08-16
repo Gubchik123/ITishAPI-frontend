@@ -7,6 +7,7 @@ import ErrorView from "../views/ErrorView.vue";
 
 import blog_routes from "./blog_routes.js";
 import auth_routes from "./auth_routes.js";
+import profile_routes from "./profile_routes.js";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,12 @@ const router = createRouter({
 			name: "auth",
 			redirect: "/auth/login",
 			children: auth_routes,
+		},
+		{
+			path: "/user",
+			name: "user",
+			redirect: "/user/me",
+			children: profile_routes,
 		},
 		{
 			path: "/:pathMatch(.*)*",
