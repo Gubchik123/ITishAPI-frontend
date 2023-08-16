@@ -6,13 +6,11 @@
 import { mapGetters, mapMutations } from "vuex";
 
 import { get_post, update_post } from "@/api/blog";
-import LoginRequiredMixin from "@/mixins/LoginRequiredMixin";
 
 import PostFormLayout from "./PostFormLayout.vue";
 
 export default {
 	name: "PostUpdateView",
-    mixins: [LoginRequiredMixin],
 	components: { PostFormLayout },
 	data() {
 		return {

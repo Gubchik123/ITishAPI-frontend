@@ -30,13 +30,11 @@
 import { mapGetters } from "vuex";
 
 import { create_post } from "@/api/blog";
-import LoginRequiredMixin from "@/mixins/LoginRequiredMixin";
 
 import PostFormLayout from "./PostFormLayout.vue";
 
 export default {
 	name: "PostCreateView",
-    mixins: [LoginRequiredMixin],
 	components: { PostFormLayout },
     computed: {
         ...mapGetters("backend", ["server_url"]),
