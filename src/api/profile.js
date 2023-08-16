@@ -1,4 +1,4 @@
-import { get_auth_headers } from "./api";
+import { get_json_headers, get_auth_headers } from "./api";
 
 export function get_user_tab(username, tab, server_url) {
 	return fetch(`${server_url}/user/${username}?tab=${tab}`, {
@@ -7,6 +7,19 @@ export function get_user_tab(username, tab, server_url) {
 		if (result.status === 404) throw new Error("User not found");
 		return result.json();
 	});
+}
+
+export function update_user({username, email, password}, server_url) {
+    return fetch(`${server_url}/user/me`, {
+        method: "PUT",
+        headers: {
+            ...get_json_headers(), ...get_auth_headers(),
+        },
+        body: JSON.stringify({ username, email, password }),
+    }).then((result) => {
+        if (!result.ok) throw new Error("Error updating user");
+        return result.json();
+    });
 }
 
 export function update_user_avatar(avatar, username, server_url) {
