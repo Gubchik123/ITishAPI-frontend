@@ -9,7 +9,7 @@
 				v-for="index in 7"
 				:key="index"
 				href="#"
-                style="width: 100px; height: 50px;"
+				style="width: 100px; height: 50px"
 				class="d-inline float_left me-3 mb-3 text-bg-secondary border rounded placeholder-lg"
 			></a>
 		</div>
@@ -22,13 +22,13 @@
 			class="tags d-flex flex-wrap justify-content-between"
 		>
 			<!-- Tags -->
-            <router-link
-                v-for="tag in tags"
+			<router-link
+				v-for="tag in tags"
 				:key="tag.id"
-                :to="{ name: 'tag', params: { slug: tag.slug }}"
+				:to="{ name: 'tag', params: { slug: tag.slug } }"
 				class="d-inline float_left me-3 mb-3 text-decoration-none"
-            >
-                <span
+			>
+				<span
 					:style="{
 						fontSize: is_mobile
 							? '1em'
@@ -47,7 +47,7 @@
 				>
 					#{{ tag.title }}
 				</span>
-            </router-link>
+			</router-link>
 		</div>
 	</BlogLayout>
 </template>
@@ -78,12 +78,9 @@ export default {
 		};
 	},
 	created() {
-		setTimeout(() => {
-			// To look at tag placeholders
-			get_all_tags(this.server_url).then((response) => {
-				this.tags = response;
-			});
-		}, 1000);
+		get_all_tags(this.server_url).then((response) => {
+			this.tags = response;
+		});
 	},
 	computed: {
 		...mapGetters("backend", ["server_url"]),

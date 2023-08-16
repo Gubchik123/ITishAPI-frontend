@@ -6,7 +6,7 @@
 	>
 		<Post :key="post.id" v-for="post in tag_posts" :post="post" />
 	</BaseLayout>
-    
+
 	<BaseLayout v-else title="All tag posts" content_title="All tag posts">
 		<template v-if="tag_posts === null">
 			<post-placeholder :key="index" v-for="index in 5" />
@@ -34,14 +34,11 @@ export default {
 		return { tag_posts: null };
 	},
 	created() {
-		setTimeout(() => {
-			// To look at post placeholders
-			get_all_tag_posts(this.server_url, this.$route.params.slug).then(
-				(response) => {
-					this.tag_posts = response;
-				}
-			);
-		}, 1000);
+		get_all_tag_posts(this.server_url, this.$route.params.slug).then(
+			(response) => {
+				this.tag_posts = response;
+			}
+		);
 	},
 	computed: {
 		...mapGetters("backend", ["server_url"]),

@@ -22,25 +22,19 @@ export default {
 		};
 	},
 	created() {
-        setTimeout(() => {
-			get_post(this.server_url, this.$route.params.slug).then(
-				(response) => {
-					this.post = response;
-					if (+localStorage.getItem("user_id") != this.post.user_id) {
-						this.SET_ERROR({
-							code: 403,
-							name: "Forbidden",
-							description: "You are not allowed to this page",
-						});
-						this.$router.push({ name: "error" });
-                        return;
-					}
-					this.post.tags = this.post.tags
-						.map((tag) => tag.title)
-						.join(", ");
-				}
-			);
-		}, 1000);
+		get_post(this.server_url, this.$route.params.slug).then((response) => {
+			this.post = response;
+			if (+localStorage.getItem("user_id") != this.post.user_id) {
+				this.SET_ERROR({
+					code: 403,
+					name: "Forbidden",
+					description: "You are not allowed to this page",
+				});
+				this.$router.push({ name: "error" });
+				return;
+			}
+			this.post.tags = this.post.tags.map((tag) => tag.title).join(", ");
+		});
 	},
 	computed: {
 		...mapGetters("backend", ["server_url"]),
