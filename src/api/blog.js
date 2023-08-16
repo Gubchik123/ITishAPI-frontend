@@ -28,6 +28,20 @@ export function create_post({title, body, tags}, server_url) {
     }).then((result) => result.json());
 }
 
+export function update_post({title, slug, body, tags}, server_url) {
+    return fetch(`${server_url}/blog/post/${slug}`, {
+        method: "PUT",
+        headers: {
+            ...get_json_headers(), ...get_auth_headers()
+        },
+        body: JSON.stringify({
+            title: title,
+            body: body,
+            tags: tags,
+        }),
+    }).then((result) => result.json());
+}
+
 export function delete_post(post_slug, server_url) {
     return fetch(`${server_url}/blog/post/${post_slug}`, {
         method: "DELETE",
