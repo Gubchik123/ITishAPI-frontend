@@ -97,11 +97,9 @@ import BaseLayout from "../BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
 
 import { login } from "../../api/auth.js";
-import IsAuthenticatedMixin from "./mixins/IsAuthenticatedMixin.js";
 
 export default {
 	name: "LoginView",
-    mixins: [IsAuthenticatedMixin],
 	components: { BaseLayout, Alert },
     data() {
         return {
