@@ -21,11 +21,13 @@ export default [
         path: "post/:slug/edit",
         name: "post-update",
         component: PostUpdateView,
+        meta: { requires_auth: true }
     },
     {
         path: "post/create",
         name: "post-create",
         component: PostCreateView,
+        meta: { requires_auth: true }
     },
     {
         path: "tags",
