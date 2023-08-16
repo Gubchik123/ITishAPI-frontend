@@ -1,5 +1,6 @@
 import PostListView from "../views/blog/PostListView.vue";
 import PostDetailView from "../views/blog/PostDetailView.vue";
+import PostUpdateView from "../views/blog/PostUpdateView.vue";
 import PostCreateView from "../views/blog/PostCreateView.vue";
 
 import TagListView from "../views/blog/TagListView.vue";
@@ -15,6 +16,11 @@ export default [
         path: "post/:slug",
         name: "post",
         component: PostDetailView,
+    },
+    {
+        path: "post/:slug/edit",
+        name: "post-update",
+        component: PostUpdateView,
     },
     {
         path: "post/create",
