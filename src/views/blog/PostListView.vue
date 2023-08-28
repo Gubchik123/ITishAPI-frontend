@@ -28,7 +28,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import BlogLayout from "./BlogLayout.vue";
+import BlogLayout from "../../layouts/BlogLayout.vue";
 import Alert from "../../components/Alert.vue";
 import UserMixin from "../../mixins/UserMixin";
 import { get_all_posts } from "../../api/blog";
