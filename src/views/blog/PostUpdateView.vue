@@ -7,7 +7,7 @@ import { mapGetters, mapMutations } from "vuex";
 
 import { get_post, update_post } from "@/api/blog";
 
-import PostFormLayout from "./PostFormLayout.vue";
+import PostFormLayout from "../../layouts/PostFormLayout.vue";
 
 export default {
 	name: "PostUpdateView",
