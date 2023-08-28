@@ -52,7 +52,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import BaseLayout from "../BaseLayout.vue";
+import BaseLayout from "@/layouts/BaseLayout.vue";
 
 export default {
 	name: "PostCreateView",

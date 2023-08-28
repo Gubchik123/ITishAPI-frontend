@@ -509,7 +509,7 @@
 </template>
 
 <script>
-import BaseLayout from "./BaseLayout.vue";
+import BaseLayout from "@/layouts/BaseLayout.vue";
 
 export default {
 	name: "FAQsView",

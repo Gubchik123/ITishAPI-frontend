@@ -86,7 +86,7 @@ import { mapGetters } from "vuex";
 import UserMixin from "@/mixins/UserMixin";
 import { update_user_avatar } from "@/api/profile";
 
-import BaseLayout from "../BaseLayout.vue";
+import BaseLayout from "@/layouts/BaseLayout.vue";
 
 export default {
 	name: "ProfileLayout",
