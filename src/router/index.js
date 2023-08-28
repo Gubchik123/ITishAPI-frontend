@@ -5,9 +5,9 @@ import FAQsView from "../views/FaqsView.vue";
 import FeedbackView from "../views/FeedbackView.vue";
 import ErrorView from "../views/ErrorView.vue";
 
-import blog_routes from "./blog_routes.js";
-import auth_routes from "./auth_routes.js";
-import profile_routes from "./profile_routes.js";
+import blog_routes from "./routes/blog.js";
+import auth_routes from "./routes/auth.js";
+import profile_routes from "./routes/profile.js";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
