@@ -33,8 +33,8 @@ import Alert from "../../components/Alert.vue";
 import UserMixin from "../../mixins/UserMixin";
 import { get_all_posts } from "../../api/blog";
 
-import Post from "./components/Post.vue";
-import PostPlaceholder from "./components/PostPlaceholder.vue";
+import Post from "../../components/blog/Post.vue";
+import PostPlaceholder from "../../components/blog/PostPlaceholder.vue";
 
 export default {
 	name: "PostListView",

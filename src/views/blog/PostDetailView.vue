@@ -142,10 +142,10 @@ import BaseLayout from "@/layouts/BaseLayout.vue";
 import Alert from "../../components/Alert.vue";
 import UserMixin from "../../mixins/UserMixin.js";
 
-import LikeButton from "./components/LikeButton.vue";
-import ItemInfo from "./components/ItemInfo.vue";
-import CommentList from "./components/CommentList.vue";
-import CommentForm from "./components/CommentForm.vue";
+import LikeButton from "../../components/blog/LikeButton.vue";
+import ItemInfo from "../../components/blog/ItemInfo.vue";
+import CommentList from "../../components/blog/CommentList.vue";
+import CommentForm from "../../components/blog/CommentForm.vue";
 import { get_post, get_post_likes, get_post_comments } from "../../api/blog.js";
 
 export default {
