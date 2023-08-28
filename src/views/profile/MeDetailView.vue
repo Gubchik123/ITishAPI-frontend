@@ -97,7 +97,7 @@
 <script>
 import { update_user, delete_user } from "@/api/profile";
 
-import ProfileMixin from "./mixins/ProfileMixin";
+import ProfileMixin from "../../mixins/ProfileMixin";
 import ProfileLayout from "../../layouts/ProfileLayout.vue";
 
 export default {

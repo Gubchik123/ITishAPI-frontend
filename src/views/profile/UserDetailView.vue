@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import ProfileMixin from "./mixins/ProfileMixin";
+import ProfileMixin from "../../mixins/ProfileMixin";
 import ProfileLayout from "../../layouts/ProfileLayout.vue";
 
 export default {

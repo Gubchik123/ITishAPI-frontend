@@ -27,7 +27,7 @@ import Post from "@/views/blog/components/Post.vue";
 import PostPlaceholder from "@/views/blog/components/PostPlaceholder.vue";
 
 import ProfileLayout from '../../layouts/ProfileLayout.vue'
-import ProfileMixin from "./mixins/ProfileMixin";
+import ProfileMixin from "../../mixins/ProfileMixin";
 
 export default {
     name: "UserLikesView",
