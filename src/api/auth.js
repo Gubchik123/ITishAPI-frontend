@@ -3,10 +3,10 @@ import { get_json_headers } from "./api";
 export function login(email, password, server_url) {
 	return fetch(`${server_url}/auth/login`, {
 		method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/x-www-form-urlencoded",
+		},
 		body: _get_form_data({
 			username: email,
 			password: password,
@@ -33,9 +33,9 @@ export function signup(username, email, password, server_url) {
 }
 
 function _get_form_data(data) {
-    const form_data = new URLSearchParams();
-    for (const [key, value] of Object.entries(data)) {
-        form_data.append(key, value);
-    }
-    return form_data;
+	const form_data = new URLSearchParams();
+	for (const [key, value] of Object.entries(data)) {
+		form_data.append(key, value);
+	}
+	return form_data;
 }

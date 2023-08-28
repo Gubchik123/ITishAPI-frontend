@@ -10,3 +10,7 @@ export function get_auth_headers() {
 		Authorization: `Bearer ${localStorage.getItem("access_token")}`,
 	};
 }
+
+export function get_json_and_auth_headers() {
+	return { ...get_json_headers(), ...get_auth_headers() };
+}
