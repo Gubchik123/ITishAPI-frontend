@@ -11,11 +11,6 @@ export default {
 			state.name = payload.name;
 			state.description = payload.description;
 		},
-		SET_DEFAULT_ERROR(state) {
-			state.code = "404";
-			state.name = "Page Not Found";
-			state.description = "The page you are looking for does not exist.";
-		},
 	},
 	getters: {
 		code(state) {
