@@ -22,7 +22,7 @@
 
 <script>
 import ProfileMixin from "./mixins/ProfileMixin";
-import ProfileLayout from "./ProfileLayout.vue";
+import ProfileLayout from "../../layouts/ProfileLayout.vue";
 
 export default {
 	name: "UserDetailView",

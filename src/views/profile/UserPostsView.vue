@@ -26,7 +26,7 @@ import Alert from "@/components/Alert.vue";
 import Post from "@/views/blog/components/Post.vue";
 import PostPlaceholder from "@/views/blog/components/PostPlaceholder.vue";
 
-import ProfileLayout from './ProfileLayout.vue'
+import ProfileLayout from '../../layouts/ProfileLayout.vue'
 import ProfileMixin from "./mixins/ProfileMixin";
 
 export default {

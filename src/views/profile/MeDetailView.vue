@@ -98,7 +98,7 @@
 import { update_user, delete_user } from "@/api/profile";
 
 import ProfileMixin from "./mixins/ProfileMixin";
-import ProfileLayout from "./ProfileLayout.vue";
+import ProfileLayout from "../../layouts/ProfileLayout.vue";
 
 export default {
 	name: "UserDetailView",
