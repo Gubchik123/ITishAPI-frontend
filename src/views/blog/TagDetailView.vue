@@ -21,8 +21,8 @@
 import { mapGetters } from "vuex";
 
 import BaseLayout from "@/layouts/BaseLayout.vue";
-import Alert from "../../components/Alert.vue";
-import { get_all_tag_posts } from "../../api/blog";
+import Alert from "@/components/Alert.vue";
+import { get_all_tag_posts } from "@/api/blog";
 
 import Post from "./components/Post.vue";
 import PostPlaceholder from "./components/PostPlaceholder.vue";

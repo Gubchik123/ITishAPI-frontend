@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import ProfileMixin from "../../mixins/ProfileMixin";
-import ProfileLayout from "../../layouts/ProfileLayout.vue";
+import ProfileMixin from "@/mixins/ProfileMixin";
+import ProfileLayout from "@/layouts/ProfileLayout.vue";
 
 export default {
 	name: "UserDetailView",

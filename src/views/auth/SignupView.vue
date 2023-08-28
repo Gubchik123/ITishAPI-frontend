@@ -104,9 +104,9 @@
 import { mapGetters } from "vuex";
 
 import BaseLayout from "@/layouts/BaseLayout.vue";
-import Alert from "../../components/Alert.vue";
+import Alert from "@/components/Alert.vue";
 
-import { signup } from "../../api/auth.js";
+import { signup } from "@/api/auth.js";
 
 export default {
 	name: "SignupView",

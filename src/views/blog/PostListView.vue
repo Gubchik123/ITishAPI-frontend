@@ -28,13 +28,13 @@
 <script>
 import { mapGetters } from "vuex";
 
-import BlogLayout from "../../layouts/BlogLayout.vue";
-import Alert from "../../components/Alert.vue";
-import UserMixin from "../../mixins/UserMixin";
-import { get_all_posts } from "../../api/blog";
+import BlogLayout from "@/layouts/BlogLayout.vue";
+import Alert from "@/components/Alert.vue";
+import UserMixin from "@/mixins/UserMixin";
+import { get_all_posts } from "@/api/blog";
 
-import Post from "../../components/blog/Post.vue";
-import PostPlaceholder from "../../components/blog/PostPlaceholder.vue";
+import Post from "@/components/blog/Post.vue";
+import PostPlaceholder from "@/components/blog/PostPlaceholder.vue";
 
 export default {
 	name: "PostListView",

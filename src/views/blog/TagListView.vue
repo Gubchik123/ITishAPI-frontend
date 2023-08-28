@@ -56,8 +56,8 @@
 import { mapGetters } from "vuex";
 
 import BlogLayout from "./BlogLayout.vue";
-import Alert from "../../components/Alert.vue";
-import { get_all_tags } from "../../api/blog";
+import Alert from "@/components/Alert.vue";
+import { get_all_tags } from "@/api/blog";
 
 export default {
 	name: "TagListView",

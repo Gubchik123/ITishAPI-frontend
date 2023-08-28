@@ -31,7 +31,7 @@ import { mapGetters } from "vuex";
 
 import { create_post } from "@/api/blog";
 
-import PostFormLayout from "../../layouts/PostFormLayout.vue";
+import PostFormLayout from "@/layouts/PostFormLayout.vue";
 
 export default {
 	name: "PostCreateView",
