@@ -1,14 +1,11 @@
 import Vuex from "vuex";
-// import Vue from "vue";
 
-import backend from "./backend";
-import error from "./error";
-
-// Vue.use(Vuex);
+import backend from "./modules/backend";
+import error from "./modules/error";
 
 const store = new Vuex.Store({
 	modules: {
-        backend: backend,
+		backend: backend,
 		error: error,
 	},
 });
